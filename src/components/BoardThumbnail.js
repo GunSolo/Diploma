@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const Thumbnail = styled.div`
-  height: 280px;
-  width: 280px;
-  background: yellow;
+  height: 150px;
+  width: 250px;
+  background: #fafcfc;
   padding: 10px;
   margin: 8px;
   display: flex;
@@ -16,9 +16,10 @@ const Thumbnail = styled.div`
 `;
 
 const Title = styled.h4`
-  color: red;
+  color: #6e6e6e;
   text-decoration: none;
 `;
+
 
 const BoardThumbnail = ({ title }) => {
   console.log(title);

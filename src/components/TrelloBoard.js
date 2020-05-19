@@ -50,9 +50,11 @@ class TrelloBoard extends PureComponent {
     }
     const listOrder = board.lists;
 
+//Link
+
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
-        <Link to="/">Go Back</Link>
+        <Link to="/" style={{ textDecoration: `none`}}>Назад к списку таблиц</Link>
         <h2>{board.title}</h2>
         <Droppable droppableId="all-lists" direction="horizontal" type="list">
           {provided => (

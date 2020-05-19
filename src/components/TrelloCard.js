@@ -74,7 +74,7 @@ const TrelloCard = React.memo(({ text, id, listID, index, dispatch }) => {
   const renderEditForm = () => {
     return (
       <TrelloForm text={cardText} onChange={handleChange} closeForm={closeForm}>
-        <TrelloButton onClick={saveCard}>Save</TrelloButton>
+        <TrelloButton onClick={saveCard}>Сохранить</TrelloButton>
       </TrelloForm>
     );
   };

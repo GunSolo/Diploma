@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { addBoard } from "../actions";
+import { addBoard, deleteBoard } from "../actions";
 import BoardThumbnail from "./BoardThumbnail";
+import Icon from "@material-ui/core/Icon";
 
 const Thumbnails = styled.div`
   flex: 1;
@@ -42,7 +43,17 @@ const CreateInput = styled.input`
   align-self: center;
 `;
 
-const Home = ({ boards, boardOrder, dispatch }) => {
+const DeleteButton = styled(Icon)`
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0.4;
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+
+const Home = ({ boards, boardOrder, dispatch, boardID }) => {
   // this is the home site that shows you your boards and you can also create a Board here.
 
   const [newBoardTitle, setNewBoardTitle] = useState("");
@@ -75,11 +86,11 @@ const Home = ({ boards, boardOrder, dispatch }) => {
   const renderCreateBoard = () => {
     return (
       <form onSubmit={handleSubmit} style={{ textAlign: "center" }}>
-        <CreateTitle>Create a new Board</CreateTitle>
+        <CreateTitle>Создать новую таблицу</CreateTitle>
         <CreateInput
           onChange={handleChange}
           value={newBoardTitle}
-          placeholder="Your boards title..."
+          placeholder="Введите название таблицы..."
           type="text"
         />
       </form>
