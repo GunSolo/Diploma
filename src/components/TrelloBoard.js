@@ -6,10 +6,22 @@ import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import styled from "styled-components";
 import { sort, setActiveBoard } from "../actions";
 import { Link } from "react-router-dom";
+import color from "@material-ui/core/colors/amber";
 
 const ListsContainer = styled.div`
   display: flex;
   flex-direction: row;
+  min-width: 1920px;
+`;
+
+const LinkContainer = styled.div`
+  display: flex;
+  width: 150px;
+  height: 25px;
+  background: #fafcfc;
+  padding: 3px;
+  border-radius: 5px;
+  justify-content: center;
 `;
 
 // TODO: Fix performance issue
@@ -54,8 +66,10 @@ class TrelloBoard extends PureComponent {
 
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
-        <Link to="/" style={{ textDecoration: `none`}}>Назад к списку таблиц</Link>
-        <h2>{board.title}</h2>
+        <LinkContainer>
+        <Link to="/" style={{ textDecoration: `none`, color: `#2F4F4F`}}>Назад до головної</Link>
+        </LinkContainer>
+        <h2  style={{ color: `#FFFFF0`}}>{board.title}</h2>
         <Droppable droppableId="all-lists" direction="horizontal" type="list">
           {provided => (
             <ListsContainer

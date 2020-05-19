@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { addBoard, deleteBoard } from "../actions";
+import { addBoard } from "../actions";
 import BoardThumbnail from "./BoardThumbnail";
 import Icon from "@material-ui/core/Icon";
 
@@ -86,11 +86,11 @@ const Home = ({ boards, boardOrder, dispatch, boardID }) => {
   const renderCreateBoard = () => {
     return (
       <form onSubmit={handleSubmit} style={{ textAlign: "center" }}>
-        <CreateTitle>Создать новую таблицу</CreateTitle>
+        <CreateTitle>Створити нову дошку</CreateTitle>
         <CreateInput
           onChange={handleChange}
           value={newBoardTitle}
-          placeholder="Введите название таблицы..."
+          placeholder="Введіть назву дошки..."
           type="text"
         />
       </form>
